@@ -2,9 +2,14 @@
 // The computer choose randomly between : "rock", "paper", or "scissors".
 // Prompt the user to choose between: "rock", "paper", or "scissors".
 
-//Desired Output: 
-//Determine the winner after 5 round game that keeps score
-// and reports a winner or looser at the end.
+// Desired Output: 
+// - A function called score that store the result of each round 
+// for the computer and the player; then the higher score is returned:
+// function playerRoundScore vs computerRoundScore (you win = +1, you lose = -1)
+
+// - Function computerGameScore vs playerGameScore
+// determine the winner after 5 round game that keeps score
+// and reports a winner or looser at the end. 
 
 // Pseudocode:
 //  1- Write a function called getComputerChoice that will randomly return either 
