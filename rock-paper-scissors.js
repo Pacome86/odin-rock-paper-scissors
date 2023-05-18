@@ -1,4 +1,6 @@
-// Inputs: 
+                                /* PLAN */
+
+// Inputs:
 // The computer choose randomly between : "rock", "paper", or "scissors".
 // Prompt the user to choose between: "rock", "paper", or "scissors".
 
@@ -45,3 +47,18 @@
 //      - Call playRound function 5 times in a row (or use a loop).
 //      - Use console.log() to display the result of each round and the winner at the end.
 //      - Use prompt to get input from the user.
+
+                /*         End of Plan      */
+
+//  1- Write a function called getComputerChoice that will randomly return either 
+//  "rock", "paper", or "scissors".
+
+function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    const randomChoice = Math.floor((Math.random() * choices.length));
+    const getComputerChoice = choices[randomChoice];
+    return getComputerChoice;
+}
+//console.log(getComputerChoice());
+
+
