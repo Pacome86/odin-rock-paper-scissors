@@ -50,7 +50,11 @@
 
                     /*         END OF PLAN     */
                     
-                            /* STEP ONE */               
+/* STEP ONE */
+// Declare two variables playerScore and computerScore to keep count of the score:
+
+let computerScore = 0;
+let playerScore = 0;
 
 //  1- Write a function called getComputerChoice that will randomly return either 
 //  "rock", "paper", or "scissors".
@@ -91,36 +95,90 @@ function getComputerChoice() {
             
             case (computerSelection === "rock"):
                 if (playerSelection.toLowerCase() === "scissors") {
-                    return "You lose! Rock breaks Scissors.";
+                    computerScore += 1;
+                    return `You lose! ${computerSelection} breaks ${playerSelection}!` ;
                 } else if (playerSelection.toLowerCase() === "paper") {
-                    return "You win! Paper covers Rock.";
+                    playerScore += 1;
+                    return `You win! ${playerSelection} covers ${computerSelection}!`;
                 } break;
             
             case (computerSelection === "paper"):
                 if (playerSelection.toLowerCase() === "rock") {
-                    return "You lose! Paper covers Rock.";
+                    computerScore += 1;
+                    return `You lose! ${computerSelection} covers ${playerSelection}!` ;
                 } else if (playerSelection.toLowerCase() === "scissors") {
-                    return "You win! Scissors cuts Paper.";
+                    playerScore += 1;
+                    return `You win! ${playerSelection} cuts ${computerSelection}!` ;
                 } break;
             
             case (computerSelection === "scissors"):
                 if (playerSelection.toLowerCase() === "paper") {
-                    return "You lose! Scissors cuts Paper.";
+                    computerScore += 1;
+                    return `You lose! ${computerSelection} cuts ${playerSelection}!` ;
                 } else if (playerSelection.toLowerCase() === "rock") {
-                    return "You win. Rock breaks Scissors.";
+                    playerScore += 1;
+                    return `You win! ${playerSelection} breaks ${computerSelection}!` ;
                 } break;
             
             default: return "I don't understand you!";
         }
     }
-}
+  }
 
+                        /* END STEP TWO */
+
+                    
                     /* STEP THREE: TEST playRound() */
+                    
 // 3- Test ok for the function playRound by using console.log() to see the results:
 
 /*const playerSelection = "paper"
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));*/
 
-/* STEP FOUR: TEST playRound() */
-// Write a NEW function call game()
+                    /* END STEP THREE */
+
+
+                /* STEP FOUR: TEST playRound() */
+// 4- Write a NEW function called game()
+
+function game() {
+
+    while ((playerScore + computerScore) < 5) {
+        const playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }  
+}
+
+game();
+
+console.log(playerScore);
+console.log(computerScore);
+
+function winGame() {
+    if (playerScore == 5) {
+            return "You win!";
+        } else if (computerScore == 5) {
+            return "you lose!";
+        }
+}
+    
+console.log(winGame());
+
+
+/*function game() {
+
+    const playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+ 
+    function winGame() {
+        if (playerScore == 5) {
+            return "You win!";
+        } else if (computerScore == 5) {
+            return "you lose!";
+        }
+    }
+    console.log(winGame());
+}*/
