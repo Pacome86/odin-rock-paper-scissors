@@ -1,3 +1,5 @@
+"use strict"
+
                                 /* PLAN */
 
 // Inputs:
@@ -83,7 +85,10 @@ function getComputerChoice() {
 //      (so users can input rock, ROCK, RocK or any other variation).
 
 //      - All of the results of this function are return, not console.log
-//      because I want to use them later on. 
+//      because I want to use them later on.
+
+//     - Increment the playerScore and computerScore variables 
+//       if the player or the computer wins the round.
 
 
   function playRound(playerSelection, computerSelection) {
@@ -124,9 +129,7 @@ function getComputerChoice() {
         }
     }
   }
-
                         /* END STEP TWO */
-
                     
                     /* STEP THREE: TEST playRound() */
                     
@@ -138,18 +141,49 @@ console.log(playRound(playerSelection, computerSelection));*/
 
                     /* END STEP THREE */
 
-
                 /* STEP FOUR: TEST playRound() */
-// 4- Write a NEW function called game()
+// 4- NEW function called game(): playRound() is called five times in a row 
+//    inside game() without a loop for the moment. The loop will be corrected when 
+//    we revisit this project in a later lesson.
 
-function game() {
+//  - prompt() is used to get input from the player and console.log() to display
+//    the winner at the end of each round.
+
+/*function game() {
 
     while ((playerScore + computerScore) < 5) {
         const playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }  
+}*/
+
+function game() {
+
+    let playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+    let computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
 }
+
+//  - Call game() then, use console.log to display the playerScore and the computerScore.
+//  - The winner of the game is determined by the function winGame().
 
 game();
 
@@ -157,28 +191,13 @@ console.log(playerScore);
 console.log(computerScore);
 
 function winGame() {
-    if (playerScore == 5) {
+    if (playerScore > computerScore) {
             return "You win!";
-        } else if (computerScore == 5) {
+        } else if (computerScore > playerScore) {
             return "you lose!";
+    } else {
+        return "Tie game!";
         }
 }
     
 console.log(winGame());
-
-
-/*function game() {
-
-    const playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
- 
-    function winGame() {
-        if (playerScore == 5) {
-            return "You win!";
-        } else if (computerScore == 5) {
-            return "you lose!";
-        }
-    }
-    console.log(winGame());
-}*/
