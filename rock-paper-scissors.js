@@ -1,23 +1,7 @@
-"use strict"
-
-                                /* PLAN */
-
-// Inputs:
-// The computer choose randomly between : "rock", "paper", or "scissors".
-// Prompt the user to choose between: "rock", "paper", or "scissors".
-
-// Desired Output: 
-// - A function called score that store the result of each round 
-// for the computer and the player; then the higher score is returned:
-// function playerRoundScore vs computerRoundScore (you win = +1, you lose = -1)
-
-// - Function computerGameScore vs playerGameScore
-// determine the winner after 5 round game that keeps score
-// and reports a winner or looser at the end. 
 
 // Pseudocode:
 //  1- Write a function called getComputerChoice() that will randomly return either 
-//  "rock", "paper", or "scissors".
+//  "rock", "paper", or "scissors". ok
 
 //  2- Write a function that play a single round of Rock Paper Scissors:
 
@@ -50,15 +34,13 @@
 //      - Use console.log() to display the result of each round and the winner at the end.
 //      - Use prompt to get input from the user.
 
-                    /*         END OF PLAN     */
-                    
-/* STEP ONE */
-// Declare two variables playerScore and computerScore to keep count of the score:
+  
+//playerScore and computerScore to keep count of the score:
 
 let computerScore = 0;
 let playerScore = 0;
 
-//  1- Write a function called getComputerChoice that will randomly return either 
+//  1- getComputerChoice() will randomly return either 
 //  "rock", "paper", or "scissors".
 
 function getComputerChoice() {
@@ -69,19 +51,15 @@ function getComputerChoice() {
 }
 
 // Test the function getComputerChoice()
-//console.log(getComputerChoice());
+//console.log(getComputerChoice()); (test ok)
 
-                /* TEST OK - END OF THE FIRST STEP */
+//  2- A single round of Rock Paper Scissors:
 
-                        /* STEP TWO */
+//      - playRound() takes 2 parameters (playerSelection, computerSelection)
+//      return a string that declares the winner of the round like so: 
+//      "You Lose! Paper beats Rock".
 
-//  2- Write a function that play a single round of Rock Paper Scissors:
-
-//      - The function playRound() takes 2 parameters (playerSelection, computerSelection)
-//      return a string that declares the winner
-//      of the round like so: "You Lose! Paper beats Rock".
-
-//      - The parameter playerSelection is case-insensitive via .toLowerCase
+//      - playerSelection is case-insensitive via .toLowerCase
 //      (so users can input rock, ROCK, RocK or any other variation).
 
 //      - All of the results of this function are return, not console.log
@@ -129,9 +107,6 @@ function getComputerChoice() {
         }
     }
   }
-                        /* END STEP TWO */
-                    
-                    /* STEP THREE: TEST playRound() */
                     
 // 3- Test ok for the function playRound by using console.log() to see the results:
 
@@ -139,65 +114,27 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));*/
 
-                    /* END STEP THREE */
-
-                /* STEP FOUR: TEST playRound() */
-// 4- NEW function called game(): playRound() is called five times in a row 
-//    inside game() without a loop for the moment. The loop will be corrected when 
-//    we revisit this project in a later lesson.
-
+// 4- Within game(): playRound() is called 5 times in a row inside the loop.   
 //  - prompt() is used to get input from the player and console.log() to display
 //    the winner at the end of each round.
 
-/*function game() {
-
-    while ((playerScore + computerScore) < 5) {
-        const playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }  
-}*/
-
 function game() {
+    for (let i = 0; i < 5; i++) {
 
     let playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
     let computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    }
 
-    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
-    computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-
-    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
-    computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-
-    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
-    computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-
-    playerSelection = prompt("Rock, Paper or Scissors...? Choose.");
-    computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-
+    if (playerScore > computerScore) {
+        return console.log(`Player score is: ${playerScore}. Computer score is: ${computerScore}. You win!`);
+        } else if (computerScore > playerScore) {
+        return console.log(`Player score is: ${playerScore}. Computer score is: ${computerScore}. You lose`);
+    } else {
+        return console.log(`Player score is: ${playerScore}. Computer score is: ${computerScore}. Tie game!`);
+    }
+    
 }
-
-//  - Call game() then, use console.log to display the playerScore and the computerScore.
-//  - The winner of the game is determined by the function winGame().
-
 game();
 
-console.log(playerScore);
-console.log(computerScore);
 
-function winGame() {
-    if (playerScore > computerScore) {
-            return "You win!";
-        } else if (computerScore > playerScore) {
-            return "you lose!";
-    } else {
-        return "Tie game!";
-        }
-}
-    
-console.log(winGame());
