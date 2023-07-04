@@ -6,8 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="rock-paper-scissors.js"></script>
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="hero">
+        <h1>Rock Paper Scissors</h1>
+        <p>Play against the computer: First to reach 5 wins the game. Good luck !...</p>
+    </div>
+
+    <div id="main" class="buttons">
+        <button id="rock" type="button">rock</button>
+        <button id="paper" type="button">paper</button>
+        <button id="scissors" type="button">scissors</button>
+    </div>
+
+    <div id="runningScore">
+        <p id="playerScore">Player: 0</p>
+        <p id="computerScore">Computer: 0</p>
+        <p id="scoreMessage"></p>
+    </div>
+
+    <div id="footer">
+        <p>
+            Copyright ©
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            Pacôme MARTIN
+            <a href="https://github.com/Pacome86" target="_blank">
+                <i class="fab fa-github" aria-hidden="true"></i></a>
+        </p>
+    </div>
+    
     
 </body>
 </html>
