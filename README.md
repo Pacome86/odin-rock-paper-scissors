@@ -1,1 +1,2 @@
 # odin-rock-paper-scissors
+First JavaScript program built from scratch the goal here was to practice a few basic concepts of JS: Variables, Numbers, Strings, Conditionals, JS Dev Tools, Functions, Problem Solving, Understanding Errors, Writing Clean Code, Arrays, Loops, Test Driven Development, DOM Manipulation and Events.
