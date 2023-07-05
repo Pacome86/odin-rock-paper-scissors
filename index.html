@@ -5,37 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="rock-paper-scissors.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="rock-paper-scissors.js" defer></script>
     <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="hero">
         <h1>Rock Paper Scissors</h1>
-        <p>Play against the computer: First to reach 5 wins the game. Good luck !...</p>
+        <p>Play against the computer. First to reach 5 wins the game. Good luck !...</p>
     </div>
 
-    <div id="main" class="buttons">
-        <button id="rock" type="button">rock</button>
-        <button id="paper" type="button">paper</button>
-        <button id="scissors" type="button">scissors</button>
-    </div>
-
-    <div id="runningScore">
-        <p id="playerScore">Player: 0</p>
-        <p id="computerScore">Computer: 0</p>
-        <p id="scoreMessage"></p>
-    </div>
+    <div id="content">
+        <div id="main" class="buttons">
+            <button class="button playing" type="button">
+                <img id="rock" src="./icons/rock-96.png" alt="rock-hand">
+            </button>
+            <button class="button playing" type="button">
+                <img id="paper" src="./icons/paper-96.png" alt="paper-hand">
+            </button>
+            <button class="button playing" type="button">
+                <img id="scissors" src="./icons/scissors-96.png" alt="hand-scissors">
+            </button>
+        </div>
+        
+        <div id="runningScore">
+            <p id="playerScore" class="score">Player: 0</p>
+            <p id="computerScore" class="score">Computer: 0</p>   
+        </div>
+        <div>
+            <p id="scoreMessage" class="score"></p>
+        </div>
+    </div> 
 
     <div id="footer">
         <p>
             Copyright ©
             <script>
-                document.write(new Date().getFullYear())
+                document.write(new Date().getFullYear()) 
             </script>
             Pacôme MARTIN
             <a href="https://github.com/Pacome86" target="_blank">
-                <i class="fab fa-github" aria-hidden="true"></i></a>
+            <i class="fab fa-github" aria-hidden="true"></i></a>
         </p>
+        <p id="credits">
+            <a target="_blank" href="https://icons8.com/icon/orH3vf0cNfqY/rock-hand">Rock Hand</a> 
+            <a target="_blank" href="https://icons8.com/icon/qKN6Ea08zCEL/paper-hand">Paper Hand</a> 
+            <a target="_blank" href="https://icons8.com/icon/17664/hand-scissors">Hand Scissors</a> <span>icons by</span><a target="_blank"
+                href="https://icons8.com"> Icons8</a>
+        </p>
+        
+
     </div>
     
     

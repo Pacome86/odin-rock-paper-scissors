@@ -1,4 +1,3 @@
-
 // Pseudocode:
 
 //  1- Write a function called getComputerChoice() that will randomly return either 
@@ -16,8 +15,6 @@
 //  3- Write a NEW function called game(). Use the previous function {inside} of this one 
 //  to display the running score and announce the winner once a player reaches 5 points.
 
-
-
 // Game:
 
 let computerScore = 0;
@@ -33,7 +30,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   
   if (playerSelection === computerSelection) {
-      return `Tie game.`;    
+      return `Tie game!`;    
   } else {
       switch (playerSelection !== computerSelection) {
 
@@ -63,10 +60,6 @@ function playRound(playerSelection, computerSelection) {
                   playerScore += 1;
                   return `You win! ${playerSelection} breaks ${computerSelection}!`;                    
               } break;
-          
-          default: if (playerSelection === "undefined") {
-              return "Please, click a button.";
-          }
       }
   }
 }
@@ -77,37 +70,38 @@ function game(e) {
     
     const playerScorePara = document.querySelector('#playerScore');
     const computerScorePara = document.querySelector('#computerScore');
-    const scoreMessage = document.querySelector('#scoreMessage')
-    
-    playerSelection = e.target.textContent;
+    const scoreMessage = document.querySelector('#scoreMessage');
+
+    playerSelection = e.target.id;
+    if (e.target.id === '' || e.target.id === 'hero' ||
+        e.target.id === 'main' || e.target.id === 'runningScore' ||
+        e.target.id === 'computerScore' || e.target.id === 'playerScore' ||
+        e.target.id === 'footer' || e.target.id === 'content') return;
     computerSelection = getComputerChoice();
     scoreMessage.textContent = `${playRound(playerSelection, computerSelection)}`;
     playerScorePara.textContent = `Player: ${playerScore}`;
     computerScorePara.textContent = `Computer: ${computerScore}`;
     
-    // When a player scores 5 load new page with a button to play again. 
-    
+    // When a player scores 5, load new page with a button to play again. 
     if (playerScore === 5 || computerScore === 5) {
         
         scoreMessage.textContent = `${winGame()}`;
         if (playerScore > computerScore) {
-            setTimeout(() => window.location.href = 'winRestart.html', 1000);
-            // window.location.href = 'winRestart.html';
+            setTimeout(() => window.location.href = 'winRestart.html', 500);
         } else {
-            setTimeout(() => window.location.href = 'lostRestart.html', 1000);
-            // window.location.href = 'lostRestart.html';
+            setTimeout(() => window.location.href = 'lostRestart.html', 500);
         }      
     }
 }
-
+    
 function winGame() {
     if (playerScore > computerScore) {
         return `Player score is: ${playerScore}. Computer score is: ${computerScore}. You win!`;
     } else if (computerScore > playerScore) {
-        return `Player score is: ${playerScore}. Computer score is: ${computerScore}. You lose`;
+        return `Player score is: ${playerScore}. Computer score is: ${computerScore}. You lose!`;
     } else {
         return `Player score is: ${playerScore}. Computer score is: ${computerScore}. Tie game!`;
     }
 }
 
-window.addEventListener('click', game);
+document.addEventListener('click', game);
